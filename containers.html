@@ -1,0 +1,482 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <title>Docker Inspection</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="my-img/icon/favicon.ico">
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.css" rel="stylesheet" media="screen">
+    <link href="css/custom.css" rel="stylesheet" media="screen">
+    <script type="text/javascript" language="JavaScript" src="js/jquery-3.0.0.min.js"></script>
+
+    <!--<script src="http://code.jquery.com/jquery.js"></script>-->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/Chart.js"></script>
+    <script src="js/myDynamicChart.js"></script>
+    <script type="text/javascript" src="js/custom.js"></script>
+    <script type="text/javascript" language="JavaScript">
+        $(document).ready(function () {
+            fCheckSidebar();
+            $(document).scroll(function () {
+                fCheckSidebar();
+            });
+        });
+    </script>
+</head>
+<body>
+<nav class="navbar navbar-default my-navbar">
+    <div class="container my-container">
+        <div class="row">
+            <div class="col-xs-3 col-md-3">
+                <div class="navbar-header">
+                    <a class="navbar-brand my-navbar-brand" href="#">Docker Inspection</a>
+                </div>
+            </div>
+            <div class="col-xs-9 col-sm-9 col-md-9">
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav my-navbar-nav">
+                        <li><a href="index.html">Local</span></a></li>
+                        <li class="active">
+                            <a href="#">Containers</a>
+                            <ul class="my-dropdown-menu">
+                                <li><a href="#">63fc9c...</a></li>
+                                <li><a href="#">97asu7...</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Brand and toggle get grouped for better mobile display -->
+
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+<div class="container my-container">
+    <div class="row">
+        <div class="col-xs-2 col-md-2">
+            <ul class="nav nav-pills nav-stacked my-sidebar" id="my-sidebar">
+                <li role="presentation" class="active"><a href="#system-info"><span
+                        class="glyphicon glyphicon-info-sign"
+                        aria-hidden="true"></span>System Info</a></li>
+                <li role="presentation"><a href="#process-list"><span class="glyphicon glyphicon-list-alt"
+                                                                      aria-hidden="true"></span>Process List</a>
+                </li>
+                <li role="presentation"><a href="#filesystem"><span class="glyphicon glyphicon-hdd"
+                                                                    aria-hidden="true"></span>Filesystem</a></li>
+            </ul>
+        </div>
+        <div class="col-xs-10 col-sm-10 col-md-10 my-right-container">
+            <div class="system-info" name="system-info" id="system-info">
+                <div class="my-system-name my-page-header">
+                    <h1>System Info</h1>
+                </div>
+                <table class="table table-hover my-system-info">
+                    <tr>
+                        <th>System Version :</th>
+                        <td>Ubuntu 14.04.04</td>
+                    </tr>
+                    <tr>
+                        <th>CPU :</th>
+                        <td>2.5 GHz Intel Core i7</td>
+                    </tr>
+                    <tr>
+                        <th>Memory :</th>
+                        <td>16 GB 1600 MHz DDR3</td>
+                    </tr>
+                    <tr>
+                        <th>Memory Usage :</th>
+                        <td>9.43GB/16GB</td>
+                    </tr>
+                    <tr>
+                        <th>Memory Usage Chart :</th>
+                        <td>
+                            <div class="my-memory-chart">
+                                <canvas id="myChart" width="300" height="300"></canvas>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>CPU Usage:</th>
+                        <td>
+                            <div class="my-cpu-chart">
+                                <canvas id="mylineChart" width="400" height="200"></canvas>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="process-list" name="process-list" id="process-list">
+                <div class="page-header my-page-header">
+                    <h1>Process List</h1>
+                </div>
+                <!--<p class="lead">-->
+                <!--All processes running in the OS are listed here:-->
+                <!--</p>-->
+                <div class="panel panel-default my-process-list-panel">
+                    <div class="panel-body">
+                        <table class="table table-hover table-striped">
+                            <thead>
+                            <tr>
+                                <th>Process Id</th>
+                                <th>Process Name</th>
+                                <th>Parent Process Id</th>
+                                <th>State</th>
+                                <th>Virtual Memory</th>
+                                <th>Container</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>init</td>
+                                <td>0</td>
+                                <td>(Sleeping)</td>
+                                <td>33948KB</td>
+                                <td>/</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>init</td>
+                                <td>0</td>
+                                <td>(Sleeping)</td>
+                                <td>33948KB</td>
+                                <td>/</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>init</td>
+                                <td>0</td>
+                                <td>(Sleeping)</td>
+                                <td>33948KB</td>
+                                <td>/</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>init</td>
+                                <td>0</td>
+                                <td>(Sleeping)</td>
+                                <td>33948KB</td>
+                                <td>/</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>init</td>
+                                <td>0</td>
+                                <td>(Sleeping)</td>
+                                <td>33948KB</td>
+                                <td>/</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>init</td>
+                                <td>0</td>
+                                <td>(Sleeping)</td>
+                                <td>33948KB</td>
+                                <td>/</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>init</td>
+                                <td>0</td>
+                                <td>(Sleeping)</td>
+                                <td>33948KB</td>
+                                <td>/</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>init</td>
+                                <td>0</td>
+                                <td>(Sleeping)</td>
+                                <td>33948KB</td>
+                                <td>/</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>init</td>
+                                <td>0</td>
+                                <td>(Sleeping)</td>
+                                <td>33948KB</td>
+                                <td>/</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>init</td>
+                                <td>0</td>
+                                <td>(Sleeping)</td>
+                                <td>33948KB</td>
+                                <td>/</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <ul class="pagination my-pagination">
+                            <li class="disabled"><a href="#">Prev</a></li>
+                            <li class="active"><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li><a href="#">Next</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="filesystem" name="filesystem" id="filesystem">
+                <div class="page-header my-page-header">
+                    <h1>File System</h1>
+                </div>
+                <!--<p class="lead">-->
+                <!--Files that have been accessed in the OS are listed here :</p>-->
+                <p>For 'Action':
+                    '0' means <code>'read'</code>,
+                    '1' means <code>'write'</code>,
+                    '2' means <code>'create'</code>,
+                    '3' means <code>'delete'</code>.</p>
+
+                <div class="panel panel-default my-filesystem-panel">
+                    <div class="panel-body">
+                        <table class="table table-hover table-striped">
+                            <thead>
+                            <tr>
+                                <th>File Path</th>
+                                <th>File Name</th>
+                                <th>Action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>/bin</td>
+                                <td>bash</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td>/bin</td>
+                                <td>bash</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td>/bin</td>
+                                <td>bash</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td>/bin</td>
+                                <td>bash</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td>/bin</td>
+                                <td>bash</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td>/bin</td>
+                                <td>bash</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td>/bin</td>
+                                <td>bash</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td>/bin</td>
+                                <td>bash</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td>/bin</td>
+                                <td>bash</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td>/bin</td>
+                                <td>bash</td>
+                                <td>0</td>
+                            </tr>
+                            </tbody>
+
+                        </table>
+                        <ul class="pagination my-pagination">
+                            <li class="disabled"><a href="#">Prev</a></li>
+                            <li class="active"><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li><a href="#">Next</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer class="my-footer">
+    <p>This is an Docker Inspection Application developed in Go.</p>
+    <p>Created by Pei Zhong as a class project @ George Washington University, 2016.</p>
+</footer>
+<div class="backToTop">
+    <a href="#"><span class="glyphicon glyphicon-menu-up"
+                      aria-hidden="true"></span></a>
+</div>
+
+<script>
+    Chart.defaults.global.defaultColor = "#3E4D54";
+    Chart.defaults.global.defaultFontFamily = ['Geomanist', 'sans-serif'];
+    var ctx = $("#myChart");
+    var myLineChart = $("#mylineChart");
+
+    //  test data
+    var linechartdata = [];
+    var linechartlabels = [];
+    for (var i = 0; i < 120; i++) {
+        linechartdata.push(parseInt(10 + Math.random() * 10));
+        if (i % 5 == 0) {
+            linechartlabels.push(i);
+        } else {
+            linechartlabels.push("");
+        }
+    }
+
+    //creating the chart
+    var data = {
+        labels: linechartlabels,
+        datasets: [
+
+            {
+                label: "CPU1 Usage",
+                fill: true,
+                lineTension: 0.1,
+                backgroundColor: "rgba(205, 102, 29,0.4)",
+                borderColor: "rgba(205, 102, 29,1)",
+                borderCapStyle: 'butt',
+                borderDash: [],
+                borderDashOffset: 0.0,
+                borderJoinStyle: 'miter',
+                pointBorderColor: "rgba(205, 102, 29,1)",
+                pointBackgroundColor: "#fff",
+                pointBorderWidth: 0.5,
+                pointHoverRadius: 5,
+                pointHoverBackgroundColor: "rgba(205, 102, 29,1)",
+                pointHoverBorderColor: "rgba(220,220,220,1)",
+                pointHoverBorderWidth: 0.5,
+                pointRadius: 1,
+                pointHitRadius: 10,
+                data: linechartdata,
+            },
+            {
+                label: "CPU2 Usage",
+                fill: true,
+                lineTension: 0.1,
+                backgroundColor: "rgba(184, 134, 11,0.4)",
+                borderColor: "rgba(184, 134, 11,1)",
+                borderCapStyle: 'butt',
+                borderDash: [],
+                borderDashOffset: 0.0,
+                borderJoinStyle: 'miter',
+                pointBorderColor: "rgba(184, 134, 11,1)",
+                pointBackgroundColor: "#fff",
+                pointBorderWidth: 0.5,
+                pointHoverRadius: 5,
+                pointHoverBackgroundColor: "rgba(184, 134, 11,1)",
+                pointHoverBorderColor: "rgba(220,220,220,1)",
+                pointHoverBorderWidth: 0.5,
+                pointRadius: 1,
+                pointHitRadius: 10,
+                data: linechartdata,
+            },
+            {
+                label: "CPU3 Usage",
+                fill: true,
+                lineTension: 0.1,
+                backgroundColor: "rgba(97, 191, 217,0.4)",
+                borderColor: "rgba(97, 191, 217,1)",
+                borderCapStyle: 'butt',
+                borderDash: [],
+                borderDashOffset: 0.0,
+                borderJoinStyle: 'miter',
+                pointBorderColor: "rgba(97, 191, 217,1)",
+                pointBackgroundColor: "#fff",
+                pointBorderWidth: 0.5,
+                pointHoverRadius: 5,
+                pointHoverBackgroundColor: "rgba(97, 191, 217,1)",
+                pointHoverBorderColor: "rgba(220,220,220,1)",
+                pointHoverBorderWidth: 0.5,
+                pointRadius: 1,
+                pointHitRadius: 10,
+                data: linechartdata,
+            },
+            {
+                label: "CPU4 Usage",
+                fill: true,
+                lineTension: 0.1,
+                backgroundColor: "rgba(194, 194, 194,0.4)",
+                borderColor: "rgba(194, 194, 194,1)",
+                borderCapStyle: 'butt',
+                borderDash: [],
+                borderDashOffset: 0.0,
+                borderJoinStyle: 'miter',
+                pointBorderColor: "rgba(194, 194, 194,1)",
+                pointBackgroundColor: "#fff",
+                pointBorderWidth: 0.5,
+                pointHoverRadius: 5,
+                pointHoverBackgroundColor: "rgba(194, 194, 194,1)",
+                pointHoverBorderColor: "rgba(220,220,220,1)",
+                pointHoverBorderWidth: 0.5,
+                pointRadius: 1,
+                pointHitRadius: 10,
+                data: linechartdata,
+            }
+        ]
+    };
+    var myLineChart = new Chart(myLineChart, {
+        type: 'line',
+        data: data,
+        options: {
+            hover: {
+                mode: 'single',
+            },
+            scales: {
+                yAxes: [{
+                    stacked: true,
+                    ticks: {
+                        max: 100,
+                        beginAtZero: true
+                    }
+                }]
+            },
+            gridLines: {
+                display: false,
+            }
+        }
+    });
+    var mydata = [9.43, 6.57];
+    var myPieChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: ["Used", "Free"],
+            datasets: [
+                {
+                    label: "Memory Usage",
+                    backgroundColor: ["rgba(255,99,132,0.2)", "rgba(75,192,192,0.2)"],
+                    borderColor: ["rgba(255,99,132,1)", "rgba(75,192,192,1)"],
+                    borderWidth: 1,
+                    hoverBackgroundColor: ["rgba(255,99,132,0.4)", "rgba(75,192,192,0.4)"],
+                    hoverBorderColor: ["rgba(255,99,132,1)", "rgba(75,192,192,1)"],
+                    data: mydata,
+                }
+            ]
+        },
+
+    });
+    setInterval("changeChart(myLineChart)", 1000);
+
+</script>
+
+
+</body>
+</html>
