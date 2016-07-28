@@ -1,0 +1,233 @@
+body {
+    font-family: 'Geomanist', sans-serif;
+}
+
+table {
+    color: #3E4D54;
+}
+
+table > thead > tr > td,
+table > tbody > tr > td {
+    border-top: 1px solid rgba(176, 196, 222, 1);
+}
+
+.my-container {
+    width: 1050px;
+}
+
+.my-navbar {
+    border-radius: 0;
+    background-color: #1797dc;
+    background: linear-gradient(0deg, #15A4D7 0%, #1488C6 100%);
+    background: linear-gradient(-70deg, transparent 92%, rgba(255, 255, 255, 0.2) 10%),
+    linear-gradient(-70deg, transparent 87%, rgba(255, 255, 255, 0.18) 15%),
+    linear-gradient(-70deg, transparent 82%, rgba(255, 255, 255, 0.12) 20%),
+    linear-gradient(0deg, #15A4D7, #1796db);
+    border: 0;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 16px;
+    height: 65px;
+}
+
+.my-navbar .my-navbar-brand {
+    color: rgba(255, 255, 255, 0.85);
+    transition: color .5s;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    font-size: 24px;
+    line-height: 65px;
+}
+
+.my-navbar .my-navbar-brand:hover,
+.my-navbar .my-navbar-brand:focus {
+    color: #ffffff;
+}
+
+.my-navbar .my-navbar-nav {
+    float: right;
+}
+
+.my-navbar .my-navbar-nav > li > a {
+    color: rgba(255, 255, 255, 0.85);
+    transition: background-color .5s;
+}
+
+.my-navbar .my-navbar-nav > li > a:hover,
+.my-navbar .my-navbar-nav > li > a:focus {
+    color: rgba(255, 255, 255, 0.85);
+    background-color: #1178af;
+
+}
+
+.my-navbar .my-navbar-nav > .active > a {
+    color: rgba(255, 255, 255, 1);
+    background: transparent;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.85);
+    transition: background-color .5s;
+}
+
+.my-navbar .my-navbar-nav > .active > a:hover,
+.my-navbar .my-navbar-nav > .active > a:focus {
+    color: rgba(255, 255, 255, 1);
+    background-color: #1278AF;
+
+}
+
+.my-dropdown-menu {
+    list-style-type: none;
+    padding-left: 0px;
+    display: none;
+    position: absolute;
+    z-index: 1;
+}
+
+/*.my-dropdown-menu-open{*/
+/*list-style-type: none;*/
+/*padding-left:0px;*/
+/*display: block;*/
+/*position: absolute;*/
+/*}*/
+
+.my-dropdown-menu li {
+
+}
+
+.my-dropdown-menu li a {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 30px;
+    padding-right: 30px;
+    display: block;
+    color: rgba(255, 255, 255, 0.85);
+    transition: background-color .5s;
+    background: #1178af;
+}
+
+.my-dropdown-menu li a:hover {
+    text-decoration: none;
+    background-color: #1797dc;
+
+}
+
+.my-sidebar {
+    margin-top: 20px;
+}
+
+.my-sidebar > li > a {
+    border-radius: 0;
+    margin-right: 10px;
+    color: #8c8c8c;
+    background-color: transparent;
+    border-left: 3px solid #ffffff;
+    transition: all .3s ease;
+}
+
+.my-sidebar > li > a:hover {
+    border-left: 3px solid #cccccc;
+    background-color: transparent;
+}
+
+.my-sidebar > li > a > span {
+    margin-right: 10px;
+}
+
+.my-sidebar > li.active > a,
+.my-sidebar > li.active > a:hover,
+.my-sidebar > li.active > a:focus {
+    color: #156882;
+    background-color: transparent;
+    border-left: 3px solid #229ACE;
+}
+
+.my-sidebar-middle {
+    top: 0px;
+    position: fixed;
+}
+
+.my-sidebar-bottom {
+    position: absolute;
+    top: 2020px;
+}
+
+.my-system-name {
+    margin-bottom: 20px;
+
+}
+
+.my-page-header {
+    color: #155A74;
+}
+
+.my-system-info td {
+    text-align: center;
+}
+
+.my-memory-chart {
+    width: 300px;
+    height: 300px;
+    margin: 0 auto;
+}
+
+.my-cpu-chart {
+    margin: 0 auto;
+    width: 600px;
+    height: 300px;
+}
+
+.my-process-list-panel tbody > tr > td, .my-process-list-panel thead > tr > th {
+    text-align: center;
+}
+
+.my-filesystem-panel tbody > tr > td, .my-filesystem-panel thead > tr > th {
+    text-align: center;
+}
+
+.my-pagination {
+    float: right;
+}
+
+.my-pagination > .active > a,
+.my-pagination > .active > a:hover,
+.my-pagination > .active > a:focus {
+    background-color: #229ACE;
+    border-color: #229ACE;
+
+}
+
+.my-pagination > li > a,
+.my-pagination > li > span {
+    color: #229ACE;
+}
+
+.my-footer {
+    background-color: #222;
+    border-color: #080808;
+    color: #9d9d9d;
+    margin-top: 100px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.my-footer p {
+    text-align: center;
+    margin: 0;
+    padding-bottom: 10px;
+}
+
+.backToTop {
+    width: 100px;
+    height: 100px;
+    position: fixed;
+    bottom: 38px;
+    right: 30px;
+    background-color: rgba(176, 196, 222, 0.3);
+    border-radius: 5px;
+}
+
+.backToTop span {
+    font-size: 60px;
+    line-height: 100px;
+    width: 100px;
+    text-align: center;
+    color: #ffffff;
+}
